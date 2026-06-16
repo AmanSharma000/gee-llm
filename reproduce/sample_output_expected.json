@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "query": "ndvi of delhi for 2023",
+    "expected_success": true,
+    "expected_attempts": 1,
+    "expected_result_keys": ["ndvi", "region", "year", "satellite"],
+    "expected_result_sample": {
+      "region": "Delhi",
+      "year": 2023,
+      "satellite": "Sentinel-2",
+      "ndvi": {
+        "type": "histogram",
+        "note": "Array of NDVI bin counts. Exact values depend on live GEE data."
+      }
+    },
+    "notes": "Straightforward NDVI query. Should succeed on first attempt using the ndvi_delhi_2023 template."
+  },
+  {
+    "id": 2,
+    "query": "compare ndvi of mumbai vs chennai for 2022",
+    "expected_success": true,
+    "expected_attempts": 1,
+    "expected_result_keys": ["region_1", "region_2", "comparison"],
+    "expected_result_sample": {
+      "region_1": "Mumbai",
+      "region_2": "Chennai",
+      "year": 2022,
+      "index": "ndvi",
+      "comparison": "Array with mean NDVI for each region"
+    },
+    "notes": "Comparison query. ComparisonEngine parses 'vs' and runs two sub-queries."
+  },
+  {
+    "id": 3,
+    "query": "mndwi of west bengal for 2023",
+    "expected_success": true,
+    "expected_attempts": 1,
+    "expected_result_keys": ["mndwi", "region", "year"],
+    "expected_result_sample": {
+      "region": "West Bengal",
+      "year": 2023,
+      "satellite": "Landsat-8",
+      "mndwi": {
+        "type": "histogram",
+        "note": "MNDWI values range from -1.0 to 1.0."
+      }
+    },
+    "notes": "Water index query. Landsat-8 selected automatically (state-level area)."
+  },
+  {
+    "id": 4,
+    "query": "forest change western ghats from 2015 to 2023",
+    "expected_success": true,
+    "expected_attempts": 2,
+    "expected_result_keys": ["nbr", "region", "start_year", "end_year"],
+    "expected_result_sample": {
+      "region": "Western Ghats",
+      "start_year": 2015,
+      "end_year": 2023,
+      "index": "NBR",
+      "time_series": "Array of annual NBR mean values from 2015 to 2023"
+    },
+    "notes": "Multi-year time-series query. May require one self-correction attempt due to large region size triggering memory constraints."
+  },
+  {
+    "id": 5,
+    "query": "evi of jaipur for 2022 using sentinel-2",
+    "expected_success": true,
+    "expected_attempts": 1,
+    "expected_result_keys": ["evi", "region", "year", "satellite"],
+    "expected_result_sample": {
+      "region": "Jaipur",
+      "year": 2022,
+      "satellite": "Sentinel-2",
+      "evi": {
+        "type": "histogram",
+        "note": "EVI values typically range from 0.0 to 0.9 for vegetation."
+      }
+    },
+    "notes": "Explicit satellite override. SatelliteSelector uses Sentinel-2 per user instruction."
+  }
+]

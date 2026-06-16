@@ -1,0 +1,667 @@
+[
+    {
+        "id": 1,
+        "query": "ndvi of delhi for 2023",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 2,
+        "query": "evi of jaipur city for 2022 using sentinel-2",
+        "level": "Simple",
+        "index": "evi"
+    },
+    {
+        "id": 3,
+        "query": "mndwi of bangalore for 2023 using landsat",
+        "level": "Simple",
+        "index": "mndwi"
+    },
+    {
+        "id": 4,
+        "query": "ndwi of chennai for 2023",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 5,
+        "query": "savi of hyderabad for 2022",
+        "level": "Simple",
+        "index": "savi"
+    },
+    {
+        "id": 6,
+        "query": "nbr of uttarakhand for 2023",
+        "level": "Simple",
+        "index": "nbr"
+    },
+    {
+        "id": 7,
+        "query": "ndmi of kerala for 2023",
+        "level": "Simple",
+        "index": "ndmi"
+    },
+    {
+        "id": 8,
+        "query": "ndvi of pune for 2022 using sentinel-2",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 9,
+        "query": "ndvi of mumbai for 2023",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 10,
+        "query": "evi of kolkata for 2022",
+        "level": "Simple",
+        "index": "evi"
+    },
+    {
+        "id": 11,
+        "query": "compare ndvi of delhi vs mumbai for 2023",
+        "level": "Comparison",
+        "index": "ndvi",
+        "is_comparison": true
+    },
+    {
+        "id": 12,
+        "query": "compare evi of chennai vs bangalore for 2022 using sentinel-2",
+        "level": "Comparison",
+        "index": "evi",
+        "is_comparison": true
+    },
+    {
+        "id": 13,
+        "query": "compare ndvi of gurugram in 2020 vs 2024",
+        "level": "Comparison",
+        "index": "ndvi",
+        "is_comparison": true
+    },
+    {
+        "id": 14,
+        "query": "compare mndwi of jaipur city in 2021 vs 2023",
+        "level": "Comparison",
+        "index": "mndwi",
+        "is_comparison": true
+    },
+    {
+        "id": 15,
+        "query": "compare savi of kolkata vs patna for 2022",
+        "level": "Comparison",
+        "index": "savi",
+        "is_comparison": true
+    },
+    {
+        "id": 16,
+        "query": "compare ndwi of pune vs nagpur for 2023",
+        "level": "Comparison",
+        "index": "ndwi",
+        "is_comparison": true
+    },
+    {
+        "id": 17,
+        "query": "compare ndvi of rajasthan in 2019 vs 2023",
+        "level": "Comparison",
+        "index": "ndvi",
+        "is_comparison": true
+    },
+    {
+        "id": 18,
+        "query": "compare evi of lucknow vs kanpur for 2022",
+        "level": "Comparison",
+        "index": "evi",
+        "is_comparison": true
+    },
+    {
+        "id": 19,
+        "query": "ndvi trend of mumbai from 2018 to 2023",
+        "level": "Trend",
+        "index": "ndvi",
+        "is_trend": true
+    },
+    {
+        "id": 20,
+        "query": "savi trend of haryana from 2020 to 2024",
+        "level": "Trend",
+        "index": "savi",
+        "is_trend": true
+    },
+    {
+        "id": 21,
+        "query": "mndwi trend of west bengal from 2020 to 2023 using landsat",
+        "level": "Trend",
+        "index": "mndwi",
+        "is_trend": true
+    },
+    {
+        "id": 22,
+        "query": "evi trend of delhi from 2019 to 2023",
+        "level": "Trend",
+        "index": "evi",
+        "is_trend": true
+    },
+    {
+        "id": 23,
+        "query": "ndwi trend of gujarat from 2021 to 2024 using modis",
+        "level": "Trend",
+        "index": "ndwi",
+        "is_trend": true
+    },
+    {
+        "id": 24,
+        "query": "ndvi trend of karnataka from 2019 to 2023",
+        "level": "Trend",
+        "index": "ndvi",
+        "is_trend": true
+    },
+    {
+        "id": 25,
+        "query": "nbr trend of himachal pradesh from 2020 to 2024",
+        "level": "Trend",
+        "index": "nbr",
+        "is_trend": true
+    },
+    {
+        "id": 26,
+        "query": "drought monitoring maharashtra using ndvi for 2023",
+        "level": "Advanced",
+        "index": "ndvi"
+    },
+    {
+        "id": 27,
+        "query": "water body detection varanasi ganga river 2023",
+        "level": "Advanced",
+        "index": "ndwi"
+    },
+    {
+        "id": 28,
+        "query": "forest change detection western ghats using ndvi",
+        "level": "Advanced",
+        "index": "ndvi"
+    },
+    {
+        "id": 29,
+        "query": "urban expansion bangalore built-up area change",
+        "level": "Advanced",
+        "index": "ndvi"
+    },
+    {
+        "id": 30,
+        "query": "crop health monitoring punjab evi agriculture 2023",
+        "level": "Advanced",
+        "index": "evi"
+    },
+    {
+        "id": 31,
+        "query": "ndvi of meghalaya from june to august 2023 with cloud cover less than 1%",
+        "complexity": "Simple",
+        "level": "Trend",
+        "index": "ndvi"
+    },
+    {
+        "id": 32,
+        "query": "evi of assam in july 2022 cloud free",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "evi"
+    },
+    {
+        "id": 33,
+        "query": "ndwi of kerala from july 2021 to august 2021 clear sky only",
+        "complexity": "Simple",
+        "level": "Trend",
+        "index": "ndwi"
+    },
+    {
+        "id": 34,
+        "query": "savi of cherrapunji in august 2023 without clouds",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "savi"
+    },
+    {
+        "id": 35,
+        "query": "mndwi of mawsynram in july 2022",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 36,
+        "query": "compare ndvi of arunachal pradesh vs sikkim in july 2023 cloud free",
+        "complexity": "Comparison",
+        "level": "Comparison",
+        "index": "ndvi"
+    },
+    {
+        "id": 37,
+        "query": "evi of goa in august 2021 clear sky",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "evi"
+    },
+    {
+        "id": 38,
+        "query": "ndvi trend of meghalaya from june to august 2020 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "ndvi"
+    },
+    {
+        "id": 39,
+        "query": "ndwi of coastal karnataka in july 2022",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 40,
+        "query": "savi of tripura in august 2023 cloud free",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "savi"
+    },
+    {
+        "id": 41,
+        "query": "ndvi of rajasthan for 2023",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 42,
+        "query": "evi of madhya pradesh for 2022",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "evi"
+    },
+    {
+        "id": 43,
+        "query": "ndwi of maharashtra for 2021",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 44,
+        "query": "compare ndvi of uttar pradesh vs andhra pradesh for 2023",
+        "complexity": "Comparison",
+        "level": "Comparison",
+        "index": "ndvi"
+    },
+    {
+        "id": 45,
+        "query": "savi of gujarat for 2022",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "savi"
+    },
+    {
+        "id": 46,
+        "query": "mndwi of karnataka for 2023",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 47,
+        "query": "ndvi trend of rajasthan from 2018 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "ndvi"
+    },
+    {
+        "id": 48,
+        "query": "evi trend of madhya pradesh from 2019 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "evi"
+    },
+    {
+        "id": 49,
+        "query": "ndwi of uttar pradesh for 2020",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 50,
+        "query": "savi of maharashtra for 2023",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "savi"
+    },
+    {
+        "id": 51,
+        "query": "sar backscatter of kerala in august 2018 using sentinel-1",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 52,
+        "query": "viirs nightlight intensity of delhi in 2023",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 53,
+        "query": "lst of rajasthan in may 2022 using modis",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "lst"
+    },
+    {
+        "id": 54,
+        "query": "compare nightlight intensity of mumbai vs bangalore for 2023",
+        "complexity": "Comparison",
+        "level": "Comparison",
+        "index": "ndvi"
+    },
+    {
+        "id": 55,
+        "query": "sar backscatter trend of assam from 2019 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "ndvi"
+    },
+    {
+        "id": 56,
+        "query": "lst trend of thar desert from 2015 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "lst"
+    },
+    {
+        "id": 57,
+        "query": "flood mapping in kerala 2018 using sentinel-1 sar",
+        "complexity": "Advanced",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 58,
+        "query": "nightlight intensity of chennai in 2021",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 59,
+        "query": "compare lst of jaipur vs jodhpur in june 2023",
+        "complexity": "Comparison",
+        "level": "Comparison",
+        "index": "lst"
+    },
+    {
+        "id": 60,
+        "query": "urban heat island effect delhi 2023 using modis lst",
+        "complexity": "Advanced",
+        "level": "Simple",
+        "index": "lst"
+    },
+    {
+        "id": 61,
+        "query": "ndvi trend of punjab from 2015 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "ndvi"
+    },
+    {
+        "id": 62,
+        "query": "evi trend of haryana from 2016 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "evi"
+    },
+    {
+        "id": 63,
+        "query": "ndwi trend of chilika lake from 2018 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "ndwi"
+    },
+    {
+        "id": 64,
+        "query": "savi trend of gujarat from 2015 to 2022",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "savi"
+    },
+    {
+        "id": 65,
+        "query": "mndwi trend of majuli island from 2015 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "ndwi"
+    },
+    {
+        "id": 66,
+        "query": "compare ndvi trend of punjab vs haryana from 2018 to 2023",
+        "complexity": "Advanced",
+        "level": "Comparison",
+        "index": "ndvi"
+    },
+    {
+        "id": 67,
+        "query": "evi trend of western ghats from 2010 to 2023 using modis",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "evi"
+    },
+    {
+        "id": 68,
+        "query": "ndwi trend of vembanad lake from 2015 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "ndwi"
+    },
+    {
+        "id": 69,
+        "query": "savi trend of kutch from 2016 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "savi"
+    },
+    {
+        "id": 70,
+        "query": "mndwi trend of sundarbans from 2015 to 2023",
+        "complexity": "Trend",
+        "level": "Trend",
+        "index": "ndwi"
+    },
+    {
+        "id": 71,
+        "query": "deforestation monitoring in arunachal pradesh using evi 2023",
+        "complexity": "Advanced",
+        "level": "Advanced",
+        "index": "evi"
+    },
+    {
+        "id": 72,
+        "query": "crop yield estimation punjab 2022 using ndvi",
+        "complexity": "Advanced",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 73,
+        "query": "drought impact assessment marathwada 2019 using ndwi",
+        "complexity": "Advanced",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 74,
+        "query": "urban sprawl monitoring hyderabad 2015 to 2023 using nightlights",
+        "complexity": "Advanced",
+        "level": "Advanced",
+        "index": "built-up"
+    },
+    {
+        "id": 75,
+        "query": "compare ndvi of eastern ghats vs western ghats for 2023",
+        "complexity": "Comparison",
+        "level": "Comparison",
+        "index": "ndvi"
+    },
+    {
+        "id": 76,
+        "query": "evi of andaman islands for 2022",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "evi"
+    },
+    {
+        "id": 77,
+        "query": "ndwi of lakshadweep for 2023",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 78,
+        "query": "compare savi of nilgiris vs aravallis for 2021",
+        "complexity": "Comparison",
+        "level": "Comparison",
+        "index": "savi"
+    },
+    {
+        "id": 79,
+        "query": "mndwi of dal lake in 2022",
+        "complexity": "Simple",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 80,
+        "query": "snow cover mapping in himalayas 2023 using ndsi",
+        "complexity": "Advanced",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 81,
+        "query": "snow cover ndsi in ladakh for 2023",
+        "level": "Simple",
+        "index": "ndsi"
+    },
+    {
+        "id": 82,
+        "query": "aerosol optical depth aod in mumbai for 2023",
+        "level": "Simple",
+        "index": "Optical_Depth_047"
+    },
+    {
+        "id": 83,
+        "query": "land surface temperature lst in bangalore for 2023",
+        "level": "Simple",
+        "index": "LST"
+    },
+    {
+        "id": 84,
+        "query": "ndwi of west bengal for 2023 using landsat 9",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 85,
+        "query": "green chlorophyll index gci in haryana for 2023",
+        "level": "Simple",
+        "index": "gci"
+    },
+    {
+        "id": 86,
+        "query": "savi of maharashtra for 2023 using landsat",
+        "level": "Simple",
+        "index": "savi"
+    },
+    {
+        "id": 87,
+        "query": "msavi of karnataka for 2023 using landsat",
+        "level": "Simple",
+        "index": "msavi"
+    },
+    {
+        "id": 88,
+        "query": "ndvi of pune for 2023",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 89,
+        "query": "evi of chennai for 2023",
+        "level": "Simple",
+        "index": "evi"
+    },
+    {
+        "id": 90,
+        "query": "mndwi of andhra pradesh for 2023",
+        "level": "Simple",
+        "index": "mndwi"
+    },
+    {
+        "id": 91,
+        "query": "ndmi of telangana for 2023",
+        "level": "Simple",
+        "index": "ndmi"
+    },
+    {
+        "id": 92,
+        "query": "nbr of sikkim for 2023",
+        "level": "Simple",
+        "index": "nbr"
+    },
+    {
+        "id": 93,
+        "query": "ui of surat for 2023",
+        "level": "Simple",
+        "index": "ui"
+    },
+    {
+        "id": 94,
+        "query": "bsi of odisha for 2023",
+        "level": "Simple",
+        "index": "bsi"
+    },
+    {
+        "id": 95,
+        "query": "precipitation of karnataka for 2023",
+        "level": "Simple",
+        "index": "precipitation"
+    },
+    {
+        "id": 96,
+        "query": "sentinel-1 soil moisture bare ground desert thar",
+        "level": "Simple",
+        "index": "VV"
+    },
+    {
+        "id": 97,
+        "query": "sentinel-1 crop monitoring in haryana using vv and vh",
+        "level": "Simple",
+        "index": "VV"
+    },
+    {
+        "id": 98,
+        "query": "forest change in eastern ghats using ndvi",
+        "level": "Simple",
+        "index": "ndvi"
+    },
+    {
+        "id": 99,
+        "query": "water detection in brahmaputra river using ndwi",
+        "level": "Simple",
+        "index": "ndwi"
+    },
+    {
+        "id": 100,
+        "query": "urban expansion in hyderabad using ui",
+        "level": "Simple",
+        "index": "ui"
+    }
+]
