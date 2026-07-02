@@ -238,20 +238,6 @@ See [`reproduce/README_reproduce.md`](reproduce/README_reproduce.md) for the ful
 
 ---
 
-## 📄 Citation
-
-If you use GEE-LLM in your research, please cite:
-
-```bibtex
-@article{sharma2026geellm,
-  title   = {GEE-LLM as a Lightweight Agentic Framework for Automated Geospatial Code Generation},
-  author  = {Sharma, Aman and Kumar, Manish},
-  journal = {(under review)},
-  year    = {2026}
-}
-```
-
----
 
 ## 🤝 Contributing
 
