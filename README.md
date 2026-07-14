@@ -209,21 +209,5 @@ python RESEARCH_PAPER/run_evaluation_benchmark.py
 
 ---
 
-## 📄 Citation
-
-If you use this framework or dataset in your research, please cite our manuscript:
-
-```bibtex
-@article{sharma2026gee,
-  title={GEE-LLM: Grounded Google Earth Engine Code Generation and Scientific Interpretation for Geospatial Decision Support},
-  author={Sharma, Aman and Kumar, Manish},
-  journal={Spatial Information Research},
-  year={2026},
-  publisher={Springer}
-}
-```
-
----
-
 ## 🔑 License
 This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
