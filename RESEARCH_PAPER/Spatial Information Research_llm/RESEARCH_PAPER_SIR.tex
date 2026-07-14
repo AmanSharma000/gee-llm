@@ -89,19 +89,19 @@ GEE-LLM contributes to this literature by making the reasoning layer explicit as
 \begin{table}[htbp]
 \caption{Feature comparison of GEE-LLM against related geospatial and agentic code generation frameworks}
 \label{tbl:sota_comparison}
-\begin{tabular*}{\tblwidth}{@{}P{1.4cm}@{\extracolsep{\fill}}P{1.2cm}@{\extracolsep{\fill}}P{1.5cm}@{\extracolsep{\fill}}P{1.5cm}@{\extracolsep{\fill}}P{1.8cm}@{\extracolsep{\fill}}P{1.2cm}@{\extracolsep{\fill}}P{1.8cm}@{\extracolsep{\fill}}P{1.4cm}@{}}
+\begin{tabular*}{\tblwidth}{@{}P{1.8cm}@{\extracolsep{\fill}}P{1.5cm}@{\extracolsep{\fill}}P{1.8cm}@{\extracolsep{\fill}}P{1.1cm}@{\extracolsep{\fill}}P{1.8cm}@{\extracolsep{\fill}}P{1.1cm}@{\extracolsep{\fill}}P{1.5cm}@{\extracolsep{\fill}}P{1.4cm}@{}}
 \toprule
-Framework & Target Domain & Retrieval / Augmentation & Live Server Execution & Feedback Source & Scientific Check & Grounded Interpretation & Compute Footprint \\
+Framework & Domain & Retrieval / Augment. & Live Exec. & Feedback Source & Sci. Check & Grounded Interp. & Compute Footprint \\
 \midrule
 Zero-Shot LLMs & General Code & None & $\times$ & None & $\times$ & $\times$ & Low (Inference) \\
 \addlinespace
-GeoGPT & General GIS & None (Tool Routing) & $\checkmark$ (Tools) & Tool execution logs & $\times$ & $\times$ & Medium (Cloud API) \\
+GeoGPT & General GIS & None (Tool Routing) & $\checkmark$ (Tools) & Tool exec. logs & $\times$ & $\times$ & Medium (Cloud API) \\
 \addlinespace
-GeoCode-GPT & Geospatial Code & None (Fine-tuning) & $\times$ & None & $\times$ & $\times$ & High (GPU) \\
+GeoCode-GPT & Geospatial Code & None (Fine-tune) & $\times$ & None & $\times$ & $\times$ & High (GPU) \\
 \addlinespace
-AutoGEEval & GEE Scripts & None & $\checkmark$ (Eval only) & None (Scoring) & $\times$ & $\times$ & Low (API-based) \\
+AutoGEEval & GEE Scripts & None & $\checkmark$ (Eval) & None (Scoring) & $\times$ & $\times$ & Low (API-based) \\
 \addlinespace
-\textbf{GEE-LLM} & GEE Scripts & Sparse Lexical (CPU) & $\checkmark$ (Live sandbox) & Regex GEE exceptions & $\checkmark$ (Physical bounds) & $\checkmark$ (Numeric-only) & Low (CPU edge) \\
+\textbf{GEE-LLM} & GEE Scripts & Sparse Lexical (CPU) & $\checkmark$ (Live) & Regex GEE except. & $\checkmark$ (Physical) & $\checkmark$ (Numeric) & Low (CPU edge) \\
 \bottomrule
 \end{tabular*}
 \end{table}
