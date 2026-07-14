@@ -1,137 +1,103 @@
-<<<<<<< HEAD
-# GEE-LLM: A Lightweight Agentic Framework for Google Earth Engine Code Generation
+# GEE-LLM: Grounded Google Earth Engine Code Generation and Scientific Interpretation for Geospatial Decision Support
 
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![Earth Engine API](https://img.shields.io/badge/Earth_Engine-API-green.svg)](https://earthengine.google.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Streamlit App](https://img.shields.io/badge/Live_App-Streamlit-red.svg)](https://geo-ai-llm-aman.streamlit.app/)
+[![Streamlit UI](https://img.shields.io/badge/UI-Streamlit-red.svg)](https://streamlit.io/)
 
-**GEE-LLM** is a lightweight, compute-agnostic agentic framework that translates natural-language geospatial queries into executable [Google Earth Engine](https://earthengine.google.com/) (GEE) Python scripts on commodity hardware — no GPU required.
-
-🌐 **Live Demo**: [https://geo-ai-llm-aman.streamlit.app/](https://geo-ai-llm-aman.streamlit.app/)  
-📦 **Repository**: [https://github.com/AmanSharma000/gee-llm](https://github.com/AmanSharma000/gee-llm)
-
----
-
-## 🔬 Why GEE-LLM?
-
-Standard large language models (LLMs) fail at GEE code generation because GEE uses a *deferred server-side* computational graph. General LLMs generate eager-execution scripts that raise `EEException` at runtime. GEE-LLM solves this by combining:
-
-1. **Lexical RAG retrieval (TF-IDF)** — matches the user query to one of 51 curated GEE template scripts
-2. **Local subprocess sandbox** — executes generated code in isolation and captures GEE tracebacks
-3. **Self-correction loop** — translates runtime exceptions into targeted re-prompts (up to 3 attempts)
-4. **Physical bounds validation** — rejects scripts that succeed but return spectral values outside physically valid ranges
+GEE-LLM is a lightweight, compute-agnostic agentic framework designed to close the loop from natural-language geospatial queries to decision-ready environmental insight. Operating on commodity CPU hardware, the framework translates queries into execution-validated Google Earth Engine (GEE) Python code and generates grounded, data-traceable scientific interpretations of the satellite statistics to support geospatial decision-making without raw imagery access or model hallucinations.
 
 ---
 
 ## 🚀 System Architecture
 
+The GEE-LLM pipeline coordinates five key stages to generate, verify, and interpret Earth Engine analyses:
+
 ```
-┌──────────────────────┐
-│ Natural Language Query│
-└──────────┬───────────┘
-           │
-           ▼
-┌────────────────────────────┐
-│  Lexical RAG Retriever     │ ◄─── 51 GEE Code Templates
-│  (TF-IDF keyword match)    │
-└─────────────┬──────────────┘
-              │ inject context
-              ▼
-┌────────────────────────────┐
-│    LLM Code Generator      │
-│  (Cohere / Groq / Ollama)  │
-└─────────────┬──────────────┘
-              │ GEE Python code
-              ▼
-┌────────────────────────────┐
-│  Local Subprocess Sandbox  │ ◄─── execution loop
-└─────────────┬──────────────┘
-              │ runtime exception traceback
-              ▼
-┌────────────────────────────┐
-│   Self-Correction Logic    │ ──► translates GEE errors → re-prompt
-└─────────────┬──────────────┘
-              │ valid server graph
-              ▼
-┌────────────────────────────┐
-│ Physical Bounds Validator  │ ──► rejects invalid spectral values
-└─────────────┬──────────────┘
-              │
-              ▼
-┌──────────────────────┐
-│  Final Verified Result│
-└──────────────────────┘
+                  ┌──────────────────────┐
+                  │ Natural Language Query│
+                  └──────────┬───────────┘
+                             │
+                             ▼
+               ┌───────────────────────────┐     
+               │  Lexical RAG Retriever    │ ◄─── [50+ GEE Templates]
+               └─────────────┬─────────────┘
+                             │ (Inject Context)
+                             ▼
+               ┌───────────────────────────┐
+               │    LLM Code Generator     │
+               └─────────────┬─────────────┘
+                             │ (GEE Python Code)
+                             ▼
+               ┌───────────────────────────┐
+               │  Local Subprocess Sandbox  │ ◄─── (Execution Loop)
+               └─────────────┬─────────────┘
+                             │ (Runtime Exception Traceback)
+                             ▼
+               ┌───────────────────────────┐
+               │   Self-Correction Logic   │ ───► [Translates GEE Errors]
+               └─────────────┬─────────────┘
+                             │ (Valid Server Graph)
+                             ▼
+               ┌───────────────────────────┐
+               │ Physical Bounds Validator │ ───► [Checks Spectral Limits]
+               └─────────────┬─────────────┘
+                             │ (Verified Numeric Result)
+                             ▼
+               ┌───────────────────────────┐
+               │  Grounded Interpretation   │ ───► [Scientific Narrative]
+               └─────────────┬─────────────┘
+                             │
+                             ▼
+                  ┌──────────────────────┐
+                  │ Final Verified Output│
+                  └──────────────────────┘
 ```
 
 ---
 
-## 📦 Repository Structure
+## 📦 Project Directory Structure
 
 ```
-gee-llm/
-├── app.py                          # Streamlit web dashboard
-├── requirements.txt                # Python dependencies
-├── LICENSE                         # MIT License
-├── README.md                       # This file
-├── TUTORIAL.md                     # Comprehensive step-by-step user guide
-├── CONTRIBUTING.md                 # Contribution guidelines
-├── CHANGELOG.md                    # Version history
-│
+geo-gee-llm-adv/
+├── app.py                          # Main Streamlit web application dashboard
+├── requirements.txt                # System dependencies
+├── LICENSE                         # Open-source MIT License
+├── README.md                       # Core system documentation
+├── TUTORIAL.md                     # Comprehensive 80+ page step-by-step user guide
+├── project_pdf.pdf                 # Formatted PDF version of the guide
 ├── backend/
 │   ├── engine.py                   # Core pipeline orchestrator
-│   ├── llm_client.py               # LLM API client (Cohere / Ollama)
-│   ├── llm_client_multi.py         # Multi-model client (Cohere, Groq, Ollama)
-│   ├── gee_runner.py               # Safe GEE subprocess runner
-│   ├── self_corrector.py           # Exception parsing & self-correction
-│   ├── error_analyzer.py           # GEE error pattern library
-│   ├── comparison_engine.py        # Region & temporal comparison
-│   ├── satellite_selector.py       # Resolution-based satellite selector
-│   ├── geometry_parser.py          # GeoJSON/KML/ZIP boundary upload
+│   ├── llm_client.py               # LLM integration client (Cohere API / Ollama)
+│   ├── gee_runner.py               # Safe Earth Engine subprocess runner
+│   ├── self_corrector.py           # Subprocess exception parsing & prompt translation
+│   ├── error_analyzer.py           # Regular expression compiler for GEE tracebacks
+│   ├── comparison_engine.py        # Regional & temporal comparison logic
+│   ├── satellite_selector.py       # Smart resolution-based satellite selection
+│   ├── geometry_parser.py          # Custom spatial boundary uploads (GeoJSON, KML, ZIP)
 │   ├── geometry_validator.py       # Area & vertex density checks
-│   ├── export_handler.py           # CSV/JSON export
-│   ├── cache_manager.py            # Local disk cache
-│   ├── query_logger.py             # Query telemetry logger
+│   ├── export_handler.py           # Result formatting exports (CSV, JSON)
+│   ├── cache_manager.py            # Local disk cache to reduce server load
+│   ├── query_logger.py             # System telemetry logger
 │   └── rag/
-│       ├── retriever.py            # TF-IDF sparse retrieval engine
+│       ├── retriever.py            # TF-IDF sparse lexical retrieval engine
 │       ├── prompt_builder.py       # Context-aware prompt construction
-│       ├── examples.jsonl          # Evaluated RAG query dataset
-│       └── snippets/               # 51 curated GEE code templates
-│           └── *.py
-│
-├── data/
-│   ├── benchmark_100_queries_final.json   # 100-query evaluation benchmark
-│   └── README_data.md                     # Data provenance & schema
-│
-├── tests/
-│   ├── test_comparison_parsing.py
-│   ├── test_retriever_v2.py
-│   ├── test_robustness.py
-│   └── test_self_correction_logic.py
-│
-├── reproduce/
-│   ├── README_reproduce.md         # Step-by-step reproducibility guide
-│   ├── run_benchmark.py            # Cross-platform benchmark runner
-│   └── sample_output_expected.json # Expected outputs for 5 queries
-│
-└── docs/
-    ├── QUICKSTART.md               # 5-minute getting-started guide
-    ├── USER_GUIDE.md               # Inputs, outputs, options, behaviour
-    └── ARCHITECTURE.md             # Deep-dive design document
+│       ├── examples.jsonl          # Evaluated RAG queries dataset
+│       └── snippets/               # Directory of 50+ GEE code templates
+├── RESEARCH_PAPER/
+│   ├── Spatial Information Research_llm/ # Special Issue LaTeX & compiled manuscript files
+│   │   ├── RESEARCH_PAPER_SIR.tex       # Main manuscript source document
+│   │   ├── TITLE_PAGE_SIR.tex           # Submissions title page
+│   │   ├── COVER_LETTER_SIR.tex         # Professional submission cover letter
+│   │   └── RESEARCH_PAPER_SIR.pdf       # Compiled 26-page manuscript PDF
+│   ├── references/                 # isolates human-expert ground-truth scripts
+│   │   └── ref_*.py (15 files)     # Reference code for benchmark validation
+│   ├── compute_codebleu.py         # Code similarity evaluation suite
+│   └── run_evaluation_benchmark.py # Script to run evaluations on models
+└── scratch/
+    ├── check_all_references.py     # Verification runner for reference scripts
+    └── reference_checks.json       # Live execution results telemetry
 ```
-
----
-
-## 🖥️ Computational Requirements
-
-| Requirement | Minimum | Recommended |
-|---|---|---|
-| CPU | Any x86-64 (2 cores) | 4+ cores |
-| RAM | 4 GB | 8 GB |
-| GPU | ❌ Not required | — |
-| OS | Windows / Linux / macOS | Linux/macOS for CI |
-| Network | Internet (GEE API + LLM API) | — |
-| Storage | ~200 MB | — |
 
 ---
 
@@ -139,22 +105,23 @@ gee-llm/
 
 ### Prerequisites
 - Python 3.9 or higher
-- A registered [Google Earth Engine account](https://earthengine.google.com)
-- A **Cohere API key** ([free tier available](https://cohere.com)) **OR** local [Ollama](https://ollama.com) for offline execution
+- A registered Google Earth Engine Account ([Sign up](https://earthengine.google.com))
+- A Cohere API key ([Get a free key](https://cohere.com)) OR a local installation of [Ollama](https://ollama.com) (for private, offline execution)
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/AmanSharma000/gee-llm.git
-cd gee-llm
+git clone https://github.com/AmanSharma000/geo-gee-llm-adv.git
+cd geo-gee-llm-adv
 ```
 
-### 2. Create Virtual Environment
-```bash
-# Windows
+### 2. Configure Virtual Environment
+**Windows:**
+```powershell
 python -m venv .venv
 .venv\Scripts\activate
-
-# Linux / macOS
+```
+**Linux / macOS:**
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
@@ -165,90 +132,98 @@ pip install -r requirements.txt
 ```
 
 ### 4. Authenticate Google Earth Engine
+Initialize Earth Engine authentication from the terminal:
 ```bash
 earthengine authenticate
 ```
 
 ### 5. Set API Credentials
-Create `.streamlit/secrets.toml`:
+Create a `.streamlit/secrets.toml` file in the project root:
 ```toml
 COHERE_API_KEY = "your-cohere-api-key-here"
 ```
-*Or export as an environment variable:*
+*Alternatively, you can export it as an environment variable:*
 ```bash
-export COHERE_API_KEY="your-key"        # Linux/macOS
-set COHERE_API_KEY=your-key             # Windows
+export COHERE_API_KEY="your-key"
 ```
 
-### 6. Launch the Dashboard
+---
+
+## 🚀 Launching the Dashboard
+
+Run the Streamlit frontend to interact with GEE-LLM via a local web interface:
 ```bash
 streamlit run app.py
 ```
-Open [http://localhost:8501](http://localhost:8501) in your browser.
+Navigate to `http://localhost:8501` to use the dashboard.
 
-> **Quick Start**: See [docs/QUICKSTART.md](docs/QUICKSTART.md) for a 5-minute guide.
-
----
-
-## 💬 Example Queries
-
-| Query | Index | Satellite |
-|---|---|---|
-| `ndvi trend of mumbai from 2018 to 2023` | NDVI | Auto (Sentinel-2) |
-| `compare ndvi of delhi vs mumbai for 2023` | NDVI | Auto |
-| `evi of jaipur city for 2022 using sentinel-2` | EVI | Sentinel-2 |
-| `mndwi of west bengal for 2023` | MNDWI | Landsat-8 |
-| `forest change in western ghats from 2015 to 2023` | NBR | Landsat-8 |
+### Example Queries:
+- **Index trend:** `ndvi trend of mumbai from 2018 to 2023`
+- **Region comparison:** `compare ndvi of delhi vs mumbai for 2023`
+- **Satellite selection:** `evi of jaipur city for 2022 using sentinel-2`
+- **Water mapping:** `mndwi of west bengal for 2023`
 
 ---
 
-## 📊 Benchmark Results
+## 📊 Open Science & Reproducibility Suite
 
-Evaluated on a 100-query benchmark spanning diverse Indian ecological zones:
+To support peer-review evaluation (specifically for the *Spatial Information Research* Special Issue), the repository includes automated verification and similarity testing harnesses:
 
-| Model | Baseline Success | GEE-LLM Success | Improvement |
-|---|---|---|---|
-| Cohere Command-A | 12.0% | 44.0% | +32 pp |
-| Groq Llama-3.3-70B | 17.0% | 45.0% | +28 pp |
-
-McNemar's test: *p* < 0.001, odds ratio up to 15.0. See [`reproduce/`](reproduce/) to run the benchmark yourself.
-
----
-
-## 🔁 Reproducibility
-
-To reproduce the main results from the paper:
+### 1. Verify Ground-Truth References
+To execute the 15 human-expert reference scripts on the live GEE backend using the public `India_sorted` boundary asset:
 ```bash
-cd reproduce
-python run_benchmark.py
+python scratch/check_all_references.py
 ```
-See [`reproduce/README_reproduce.md`](reproduce/README_reproduce.md) for the full guide, including expected outputs and notes on non-determinism.
+This script validates execution status and saves the output telemetry directly to `scratch/reference_checks.json`.
+
+### 2. Compute CodeBLEU Metrics
+To evaluate the similarity of generated code against the human-expert reference suite:
+```bash
+python RESEARCH_PAPER/compute_codebleu.py
+```
+
+### 3. Run the Evaluation Benchmark
+To run the full 100-query benchmark across different local or API-based model configurations:
+```bash
+python RESEARCH_PAPER/run_evaluation_benchmark.py
+```
 
 ---
 
 ## 🎯 Supported Spectral Indices & Satellites
 
-| Satellite | Resolution | Archive Start |
-|---|---|---|
-| Sentinel-2 | 10 m | 2015 |
-| Landsat-8 | 30 m | 2013 |
-| MODIS | 500 m | 2000 |
+### Satellites
+*   **Sentinel-2 (10m):** High-resolution terrestrial indices (2015-present).
+*   **Landsat-8 (30m):** Medium-resolution long-term analysis (2013-present).
+*   **MODIS (500m):** High-frequency daily regional composites (2000-present).
 
-**Indices**: NDVI · EVI · SAVI · NDWI · MNDWI · NDMI · NBR · UI · BSI · MSAVI · NDSI · GCI · LST · AOD
+### Spectral Indices
+*   **NDVI:** Normalized Difference Vegetation Index
+*   **EVI:** Enhanced Vegetation Index
+*   **SAVI:** Soil Adjusted Vegetation Index
+*   **NDWI / MNDWI:** Water Index / Modified Water Index
+*   **NDMI:** Normalized Difference Moisture Index
+*   **NBR:** Normalized Burn Ratio
+*   **UI:** Urban Index
+*   **BSI:** Bare Soil Index
 
 ---
 
+## 📄 Citation
 
-## 🤝 Contributing
+If you use this framework or dataset in your research, please cite our manuscript:
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request.
+```bibtex
+@article{sharma2026gee,
+  title={GEE-LLM: Grounded Google Earth Engine Code Generation and Scientific Interpretation for Geospatial Decision Support},
+  author={Sharma, Aman and Kumar, Manish},
+  journal={Spatial Information Research},
+  year={2026},
+  publisher={Springer}
+}
+```
 
 ---
 
 ## 🔑 License
-
-This project is licensed under the [MIT License](LICENSE) — see the file for details.
-=======
-# gee-llm
-GEE-LLM as a Lightweight Agentic Framework for Automated Geospatial Code Generation
->>>>>>> 5019b3a23db7506c380d5853182ff6757ffaa838
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.

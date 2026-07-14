@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{fontenc}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\textbf{Cover Letter}
+
+\bigskip
+
+\textbf{To:} The Guest Editors,\\
+Special Issue: \textit{Intersection of Geospatial Data and Large Language Models}\\
+\textit{Spatial Information Research} (Springer)
+
+\bigskip
+
+\textbf{Manuscript Title:} GEE-LLM: Grounded Google Earth Engine Code Generation and Scientific Interpretation for Geospatial Decision Support
+
+\textbf{Authors:} Aman Sharma, Manish Kumar\\
+Centre for Green Energy and Nanotechnology (C-GENT), Himachal Pradesh University, Shimla, India
+
+\bigskip
+
+Dear Guest Editors,
+
+We are pleased to submit the above manuscript for consideration in the special issue on the \textit{Intersection of Geospatial Data and Large Language Models}. We believe this submission is a direct and substantive contribution to the specific scope articulated in the special issue call: the development of Geo LLMs that ``incorporate geospatial knowledge and reasoning capabilities'' and are ``leveraged to enhance decision-making in environmental monitoring.''
+
+The special issue calls for work that demonstrates how large language models can be integrated with geospatial data to support real-world decision-making. Our manuscript addresses this challenge at the foundational level. The central problem we solve is not code generation per se, but the complete pipeline that connects a non-expert user's natural-language environmental question to a trustworthy, human-readable scientific answer grounded in live satellite data.
+
+GEE-LLM achieves this through a two-stage architecture. The first stage generates and self-corrects executable Google Earth Engine Python code via a sandboxed execution engine, a physical boundary validation layer, and a lexical template retrieval module operating entirely on CPU hardware. This stage raises execution success rates from 12--17\% (zero-shot baselines) to 44--45\%, a statistically significant three-fold improvement confirmed by McNemar's test ($p < 0.001$, odds ratio up to 15.0). The second stage --- which we believe is the key contribution that distinguishes this work from prior geospatial code generation research --- passes only the execution-validated numeric result to a second, independent LLM call that produces a grounded scientific interpretation. This interpretation describes what the satellite data actually shows --- vegetation trends, distributional shifts, anomalous years --- without access to the source code, raw imagery, or unverified assumptions, and without making causal claims that the data cannot support.
+
+We illustrate this with a concrete case study: a five-year NDVI trend over Gurugram city from Sentinel-2 imagery, where the interpretation stage produces a verifiable, data-traceable narrative of the vegetation trajectory that a hydrologist, a forest officer, or a municipal planner can act upon directly. Every claim in the output is mapped to a specific feature of the validated histogram distribution passed to the model.
+
+We confirm that this manuscript has not been published elsewhere and is not under consideration at any other journal. All code, benchmark data, and model output logs are publicly available at \url{https://github.com/AmanSharma000/gee-llm}, and the live application is accessible at \url{https://geo-ai-llm-aman.streamlit.app/}.
+
+We believe this work makes a timely and concrete contribution to the special issue and would welcome the opportunity to present it to your readership.
+
+\bigskip
+
+Yours sincerely,
+
+\bigskip
+\textbf{Manish Kumar} (Corresponding Author)\\
+Centre for Green Energy and Nanotechnology (C-GENT)\\
+University Institute of Technology (UIT)\\
+Himachal Pradesh University, Shimla -- 171005, India\\
+Email: \href{mailto:naik.manish17@gmail.com}{naik.manish17@gmail.com}
+
+\end{document}

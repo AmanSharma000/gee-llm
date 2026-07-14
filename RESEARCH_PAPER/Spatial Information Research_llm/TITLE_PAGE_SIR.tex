@@ -1,0 +1,58 @@
+\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title[GEE-LLM: Grounded GEE Code Gen and Scientific Interpretation]{GEE-LLM: Grounded Google Earth Engine Code Generation and Scientific Interpretation for Geospatial Decision Support}
+
+\author[1]{\fnm{Aman} \sur{Sharma}}
+\author*[1,2]{\fnm{Manish} \sur{Kumar}}\email{naik.manish17@gmail.com}
+
+\affil[1]{\orgname{Centre for Green Energy and Nanotechnology (C-GENT), Himachal Pradesh University (HPU)}, \orgaddress{\city{Shimla}, \state{Himachal Pradesh}, \postcode{171005}, \country{India}}}
+\affil[2]{\orgname{University Institute of Technology (UIT), Himachal Pradesh University (HPU)}, \orgaddress{\city{Shimla}, \state{Himachal Pradesh}, \postcode{171005}, \country{India}}}
+
+\maketitle
+
+\section*{Highlights}
+\begin{itemize}
+    \item GEE-LLM closes the complete loop from natural language query to decision-ready geospatial intelligence, combining verified satellite code generation with grounded scientific interpretation.
+    \item A two-pass large language model architecture separates executable code generation from result interpretation, ensuring that the reasoning stage operates exclusively on execution-validated numeric output.
+    \item A local sandboxed execution engine with physical boundary validation raises script correctness from 12--17\% (zero-shot baseline) to 44--45\% across a 100-query benchmark spanning diverse Indian ecological zones.
+    \item McNemar's test confirms that improvements are statistically significant ($p < 0.001$), with odds ratios up to 15.0, demonstrating that the self-correction loop recovers failing scripts rather than degrading successful ones.
+    \item The framework operates on commodity CPU hardware without GPU resources or commercial cloud subscriptions, making geospatial decision support accessible to resource-constrained research environments.
+\end{itemize}
+
+\section*{Statements and Declarations}
+
+\subsection*{Funding}
+No funds, grants, or other support was received.
+
+\subsection*{Competing Interests}
+The authors have no relevant financial or non-financial interests to disclose.
+
+\subsection*{Ethics Approval}
+Not applicable.
+
+\subsection*{Consent to Participate}
+Not applicable.
+
+\subsection*{Consent for Publication}
+Not applicable.
+
+\subsection*{Data and Code Availability}
+The interactive web application is hosted at: \url{https://geo-ai-llm-aman.streamlit.app/}. The full GEE-LLM software framework, the lexical template corpus, the 100-query benchmark, and all model output logs are publicly available at: \url{https://github.com/AmanSharma000/gee-llm}.
+
+\subsection*{Authors' Contributions}
+CRediT taxonomy mapping:
+\begin{itemize}
+    \item \textbf{Aman Sharma}: Conceptualization, Methodology, Software, Formal Analysis and Investigation, Writing --- Original Draft, Writing --- Review \& Editing.
+    \item \textbf{Manish Kumar}: Supervision, Resources, Writing --- Review \& Editing.
+\end{itemize}
+
+\subsection*{Acknowledgments}
+We thank the Centre for Green Energy and Nanotechnology (C-GENT), Himachal Pradesh University, for providing computational infrastructure and institutional support throughout this research.
+
+\end{document}
